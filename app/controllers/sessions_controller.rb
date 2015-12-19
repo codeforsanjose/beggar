@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       session[:github_username] = github_username
       redirect_to root_path
     else
-      flash[:error] = "You cannot access this site unless you are a member of the thoughtbot team"
+      flash[:error] = "You cannot access this site unless you are a member of the #{ENV.fetch("GITHUB_TEAM_ID")} team"
       redirect_to root_path
     end
   end
